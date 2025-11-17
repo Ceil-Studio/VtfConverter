@@ -18,6 +18,8 @@ if [ ! -d "$1" ]; then
   exit 1
 fi
 
+HERE=$(pwd)
+
 # Se déplacer dans le dossier spécifié
 cd "$1" || exit 1
 
@@ -25,7 +27,8 @@ echo "format dxt1-5"
 read formatt
 
 
+
 # Boucle pour parcourir les fichiers d'image et exécuter la commande Wine pour chacun
 for image_file in *.png; do
-  wine ./vtflib/bin/x64/VTFCmd.exe -file "$image_file" -format "$formatt"
+  wine $HERE/vtflib/bin/x64/VTFCmd.exe -file "$image_file" -format "$formatt"
 done
