@@ -17,11 +17,11 @@ if [ ! -d "$1" ]; then
   echo "Le dossier spécifié n'existe pas."
   exit 1
 fi
-
+HERE=$(pwd)
 # Se déplacer dans le dossier spécifié
 cd "$1" || exit 1
 
 # Boucle pour parcourir les fichiers d'image et exécuter la commande Wine pour chacun
 for image_file in *.jpeg; do
-  wine ./vtflib/bin/x64/VTFCmd.exe -file "$image_file" -format "dxt1"
+  wine $HERE/vtflib/bin/x64/VTFCmd.exe -file "$image_file" -format "dxt1"
 done
