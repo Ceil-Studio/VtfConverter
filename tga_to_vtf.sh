@@ -23,6 +23,9 @@ fi
 cd "$1" || exit 1
 
 # Boucle pour parcourir les fichiers d'image et exécuter la commande Wine pour chacun
-for image_file in *.vtf; do
-  wine $HERE/vtflib/bin/x64/VTFCmd.exe -file "$image_file" -exportformat "tga"
-done
+#for image_file in *.vtf; do
+	#wine $HERE/vtflib/bin/x64/VTFCmd.exe -file "$image_file" -exportformat "tga"
+#done
+
+find -type f -name "*.vtf" -exec wine "$HERE/vtflib/bin/x64/VTFCmd.exe" -file {} -exportformat "tga" \;
+

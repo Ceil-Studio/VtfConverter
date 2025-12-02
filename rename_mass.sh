@@ -20,7 +20,7 @@ fi
 for fichier in "$dossier"/*.vmt; do
     if [ -f "$fichier" ]; then
         echo "Traitement de $fichier..."
-        sed -i "s/$ancienne_chaine/$nouvelle_chaine/g" "$fichier"
+        sed -i "s:$ancienne_chaine:$nouvelle_chaine:g" "$fichier"
     fi
 done
 
