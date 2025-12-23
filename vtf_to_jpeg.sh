@@ -22,6 +22,7 @@ HERE=$(pwd)
 cd "$1" || exit 1
 
 # Boucle pour parcourir les fichiers d'image et exécuter la commande Wine pour chacun
-for image_file in *.jpeg; do
-  wine $HERE/vtflib/bin/x64/VTFCmd.exe -file "$image_file" -format "dxt1"
-done
+# for image_file in *.jpeg; do
+#   wine $HERE/vtflib/bin/x64/VTFCmd.exe -file "$image_file" -format "dxt1"
+# done
+find -type f -name "*.jpeg" -exec wine "$HERE/vtflib/bin/x64/VTFCmd.exe" -file {} -format "$formatt" \;

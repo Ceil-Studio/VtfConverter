@@ -26,6 +26,7 @@ read formatt
 
 
 # Boucle pour parcourir les fichiers d'image et exécuter la commande Wine pour chacun
-for image_file in *.dds; do
-  wine $HERE/vtflib/bin/x64/VTFCmd.exe -file "$image_file" -format "$formatt"
-done
+# for image_file in *.dds; do
+#   wine $HERE/vtflib/bin/x64/VTFCmd.exe -file "$image_file" -format "$formatt"
+# done
+find -type f -name "*.dds" -exec wine "$HERE/vtflib/bin/x64/VTFCmd.exe" -file {} -format "$formatt" \;
